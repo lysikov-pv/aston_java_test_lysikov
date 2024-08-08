@@ -1,34 +1,43 @@
-import java.util.Scanner;
 
+/**
+ *  Р—Р°РґР°РЅ РјР°СЃСЃРёРІ С†РµР»С‹С… С‡РёСЃРµР»: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. РќРµРѕР±С…РѕРґРёРјРѕ РЅР°РїРёСЃР°С‚СЊ РїСЂРѕРіСЂР°РјРјСѓ, РєРѕС‚РѕСЂР°СЏ РІС‹РІРµРґРµС‚ РІ
+ *  РєРѕРЅСЃРѕР»СЊ РІСЃРµ С‡С‘С‚РЅС‹Рµ С‡РёСЃР»Р°.
+ */
 public class task_3 {
-   /**
-    *  Задан массив целых чисел: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. Необходимо написать программу, которая выведет в
-    *  консоль все чётные числа.
-    */
 
-   public static String printArr(int[] arr) {
-       StringBuilder result = new StringBuilder("[");
-       for (int i = 0; i < arr.length; i++) {
+    /**
+     * РџРµС‡Р°С‚Р°РµС‚ РѕРґРЅРѕРјРµРЅС‹Р№ РјР°СЃСЃРёРІ
+     * @param arr РѕРґРЅРѕРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ
+     */
+    public static String printArr(int[] arr) {
+        StringBuilder result = new StringBuilder("[");
+        for (int i = 0; i < arr.length; i++) {
             result.append(arr[i] + ", ");
-       }
-       if (result.length() > 1)
-           return result.replace(result.length() - 2, result.length(), "]").toString();
-       return "[]";
-   }
-   public static String printOdd(int[] arr) {
-       StringBuilder result = new StringBuilder();
-       for (int i = 0; i < arr.length; i++) {
-           if (arr[i] % 2 == 0) {
-               result.append(arr[i] + ", ");
-           }
-       }
-       if (result.length() > 0)
-           return result.substring(0, result.length() - 2).toString();
-       return "нет";
-   }
+        }
+        if (result.length() > 1)
+            return result.replace(result.length() - 2, result.length(), "]").toString();
+        return "[]";
+    }
+
+    /**
+     * РџРµС‡РІС‚Р°РµРј С‡РµС‚РЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
+     * @param arr РѕРґРЅРѕРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ
+     */
+    public static String printOdd(int[] arr) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                result.append(arr[i] + ", ");
+            }
+        }
+        if (result.length() > 0)
+            return result.substring(0, result.length() - 2).toString();
+        return "РЅРµС‚";
+    }
 
     public static void main(String[] args){
-       int[] a = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-       System.out.println("В массиве " + printArr(a) + " четные числа: " + printOdd(a));
-       }
+        int[] a = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println("Р’ РјР°СЃСЃРёРІРµ " + printArr(a) + " С‡РµС‚РЅС‹Рµ С‡РёСЃР»Р°: " + printOdd(a)); // Arrays.toString(a)
+
+    }
 }
