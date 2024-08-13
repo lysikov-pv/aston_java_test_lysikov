@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 /**
  *  Задан массив целых чисел: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. Необходимо написать программу, которая выведет в
@@ -6,7 +8,7 @@
 public class task_3 {
 
     /**
-     * Печатает одноменый массив
+     * Возвращает одноменый массив преобразованный в строку в строку нужного формата
      * @param arr одномерный массив
      */
     public static String printArr(int[] arr) {
@@ -17,6 +19,15 @@ public class task_3 {
         if (result.length() > 1)
             return result.replace(result.length() - 2, result.length(), "]").toString();
         return "[]";
+    }
+
+    /**
+     * Возвращает одноменый массив преобразованный в строку нужного формата с помощью stream api
+     * @param arr одномерный массив
+     */
+    public static String streamPrintArr(int[] arr) {
+        return Arrays.stream(arr).mapToObj(String::valueOf)
+                .collect(Collectors.joining(", ", "[", "]"));
     }
 
     /**
@@ -37,7 +48,7 @@ public class task_3 {
 
     public static void main(String[] args){
         int[] a = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        System.out.println("В массиве " + printArr(a) + " четные числа: " + printOdd(a)); // Arrays.toString(a)
+        System.out.println("В массиве " + streamPrintArr(a) + " четные числа: " + printOdd(a)); // Arrays.toString(a)
 
     }
 }
